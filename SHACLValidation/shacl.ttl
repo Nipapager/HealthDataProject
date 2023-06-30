@@ -1,0 +1,114 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ex: <http://example.org/hdi/> .
+
+ex:ObservationShape
+    a sh:NodeShape ;
+    sh:targetClass sosa:Observation ;
+    sh:property [
+        sh:path sosa:hasFeatureOfInterest ;
+        sh:class sosa:FeatureOfInterest ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path sosa:usedProcedure ;
+        sh:class sosa:Procedure ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path sosa:hasResult ;
+        sh:class qudt:QuantityValue ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path sosa:hasSimpleResult ;
+        sh:maxCount 1 ;
+        sh:or (
+            [ sh:datatype xsd:integer ]
+            [ sh:datatype xsd:string ]
+        )
+    ] ;
+    sh:property [
+        sh:path sosa:phenomenonTime ;
+        sh:class time:TemporalEntity ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path sosa:observedProperty ;
+        sh:class sosa:ObservableProperty ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+ex:UnitShape
+    a sh:NodeShape ;
+    sh:targetClass qudt:Unit ;
+    sh:property [
+        sh:path qudt:symbol ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+ex:QuantityValueShape
+    a sh:NodeShape ;
+    sh:targetClass qudt:QuantityValue ;
+    sh:property [
+        sh:path sosa:isResultOf ;
+        sh:class sosa:Observation ;
+        sh:minCount 1 ;
+    ] ;
+    sh:property [
+        sh:path qudt:unit ;
+        sh:class qudt:Unit ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path qudt:numericValue ;
+        sh:datatype xsd:float ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+
+ex:InstantShape
+    a sh:NodeShape ;
+    sh:targetClass time:Instant ;
+    sh:property [
+        sh:path time:inXSDDateTimeStamp ;
+        sh:datatype xsd:dateTimeStamp ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+ex:IntervalShape
+    a sh:NodeShape ;
+    sh:targetClass time:Interval ;
+    sh:property [
+        sh:path time:hasBeginning ;
+        sh:class time:Instant ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path time:hasEnd ;
+        sh:class time:Instant ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+ex:FeatureOfInterestShape
+    a sh:NodeShape ;
+    sh:targetClass sosa:FeatureOfInterest ;
+    sh:property [
+        sh:path sosa:isFeatureOfInterestOf ;
+        sh:class sosa:Observation ;
+        sh:minCount 1 ;
+    ] .
