@@ -1,0 +1,193 @@
+# baseURI: http://qudt.org/2.1/schema/qudt
+# imports: http://www.linkedmodel.org/schema/dtype
+# imports: http://www.linkedmodel.org/schema/vaem
+# imports: http://www.w3.org/2004/02/skos/core
+
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dtype: <http://www.linkedmodel.org/schema/dtype#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix quantitykind: <http://qudt.org/vocab/quantitykind/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix qudt.type: <http://qudt.org/vocab/type/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix vaem: <http://www.linkedmodel.org/schema/vaem#> .
+@prefix voag: <http://voag.linkedmodel.org/schema/voag#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://qudt.org/2.1/schema/qudt>
+  a owl:Ontology ;
+  vaem:hasGraphMetadata vaem:GMD_QUDT-SCHEMA ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/schema/qudt> ;
+  rdfs:label "QUDT Schema - Version 2.1.27" ;
+  owl:versionIRI <http://qudt.org/2.1/schema/qudt> ;
+.
+
+qudt:QuantityValue
+  a owl:Class ;
+  rdfs:comment "A <i>Quantity Value</i> expresses the magnitude and kind of a quantity and is given by the product of a numerical value <code>n</code> and a unit of measure <code>U</code>. The number multiplying the unit is referred to as the numerical value of the quantity expressed in that unit. Refer to <a href=\"http://physics.nist.gov/Pubs/SP811/sec07.html\">NIST SP 811 section 7</a> for more on quantity values."^^rdf:HTML ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/schema/qudt> ;
+  rdfs:label "Quantity value" ;
+  rdfs:subClassOf owl:Thing ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
+      owl:maxCardinality 1 ;
+      owl:onProperty qudt:unit ;
+    ] ;
+.
+
+qudt:Unit
+  a owl:Class ;
+  dcterms:description "A unit of measure, or unit, is a particular quantity value that has been chosen as a scale for measuring other quantities the same kind (more generally of equivalent dimension). For example, the meter is a quantity of length that has been rigorously defined and standardized by the BIPM (International Board of Weights and Measures). Any measurement of the length can be expressed as a number multiplied by the unit meter. More formally, the value of a physical quantity Q with respect to a unit (U) is expressed as the scalar multiple of a real number (n) and U, as  \\(Q = nU\\)."^^qudt:LatexString ;
+  qudt:informativeReference "http://dbpedia.org/resource/Category:Units_of_measure"^^xsd:anyURI ;
+  qudt:informativeReference "http://www.allmeasures.com/Fullconversion.asp"^^xsd:anyURI ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/schema/qudt> ;
+  rdfs:label "Unit" ;
+  rdfs:subClassOf owl:Thing ;
+  .
+
+
+qudt:numericValue
+  a owl:DatatypeProperty ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/schema/qudt> ;
+  rdfs:label "numeric value" ;
+.
+
+qudt:unit
+  a owl:ObjectProperty ;
+  dcterms:description "A reference to the unit of measure of a quantity (variable or constant) of interest."^^rdf:HTML ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/schema/qudt> ;
+  rdfs:label "unit" ;
+  rdfs:range qudt:Unit ;
+  owl:inverseOf qudt:unitFor ;
+.
+qudt:unitFor
+  a owl:ObjectProperty ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/schema/qudt> ;
+  rdfs:label "unit for" ;
+  owl:inverseOf qudt:unit ;
+.
+
+
+qudt:symbol
+  a owl:DatatypeProperty ;
+  dcterms:description "The symbol is a glyph that is used to represent some concept, typically a unit or a quantity, in a compact form. For example, the symbol for an Ohm is \\(ohm\\). This contrasts with 'unit:abbreviation', which gives a short alphanumeric abbreviation for the unit, 'ohm' for Ohm."^^qudt:LatexString ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/schema/qudt> ;
+  rdfs:label "symbol" ;
+.
+
+<http://qudt.org/vocab/unit/KiloCAL>
+  a <http://qudt.org/schema/qudt/Unit> ;
+  <http://purl.org/dc/terms/description> "\\(\\textbf{Kilocalorie} is a unit for \\textit{Energy And Work} expressed as \\(kcal\\)."^^<http://qudt.org/schema/qudt/LatexString> ;
+  <http://qudt.org/schema/qudt/symbol> "kcal" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
+  rdfs:isDefinedBy <http://qudt.org/vocab/unit> ;
+  rdfs:label "Kilocalorie"@en ;
+.
+
+<http://qudt.org/vocab/unit/CentiM>
+  a <http://qudt.org/schema/qudt/Unit> ;
+  <http://purl.org/dc/terms/description> "A centimetre is a unit of length in the metric system, equal to one hundredth of a metre, which is the SI base unit of length. Centi is the SI prefix for a factor of 10.  The centimetre is the base unit of length in the now deprecated centimetre-gram-second (CGS) system of units."^^rdf:HTML ;
+  <http://qudt.org/schema/qudt/symbol> "cm" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
+  rdfs:isDefinedBy <http://qudt.org/vocab/unit> ;
+  rdfs:label "Centimeter"@en-us ;
+  rdfs:label "Centimetre"@en ;
+.
+
+<http://qudt.org/vocab/unit/BEAT-PER-MIN>
+  a <http://qudt.org/schema/qudt/Unit> ;
+  <http://purl.org/dc/terms/description> "\"Heart Beat per Minute\" is a unit for  'Heart Rate' expressed as \\(BPM\\)."^^<http://qudt.org/schema/qudt/LatexString> ;
+  <http://qudt.org/schema/qudt/symbol> "BPM" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
+  rdfs:isDefinedBy <http://qudt.org/vocab/unit> ;
+  rdfs:label "Heart Beats per Minute"@en ;
+.
+
+<http://qudt.org/vocab/unit/HZ>
+  a <http://qudt.org/schema/qudt/Unit> ;
+  <http://purl.org/dc/terms/description> "The hertz (symbol Hz) is the SI unit of frequency defined as the number of cycles per second of a periodic phenomenon. One of its most common uses is the description of the sine wave, particularly those used in radio and audio applications, such as the frequency of musical tones. The word \"hertz\" is named for Heinrich Rudolf Hertz, who was the first to conclusively prove the existence of electromagnetic waves."^^rdf:HTML ;
+  <http://qudt.org/schema/qudt/symbol> "Hz" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
+  rdfs:isDefinedBy <http://qudt.org/vocab/unit> ;
+  rdfs:label "Hertz"@en ;
+.
+
+<http://qudt.org/vocab/unit/KiloGM>
+  a <http://qudt.org/schema/qudt/Unit> ;
+  <http://qudt.org/schema/qudt/symbol> "kg" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
+  rdfs:isDefinedBy <http://qudt.org/vocab/unit> ;
+  rdfs:label "Kilogram"@en ;
+.
+
+<http://qudt.org/vocab/unit/LB>
+  a <http://qudt.org/schema/qudt/Unit> ;
+  <http://purl.org/dc/terms/description> "A pound of mass, based on the international standard definition of the pound as exactly 0.45359237 kg."^^rdf:HTML ;
+  <http://qudt.org/schema/qudt/symbol> "lbm" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
+  rdfs:isDefinedBy <http://qudt.org/vocab/unit> ;
+  rdfs:label "Pound Mass"@en ;
+.
+
+<http://qudt.org/vocab/unit/M>
+  a <http://qudt.org/schema/qudt/Unit> ;
+  <http://purl.org/dc/terms/description> "The metric and SI base unit of distance.  The 17th General Conference on Weights and Measures in 1983 defined the meter as that distance that makes the speed of light in a vacuum equal to exactly 299 792 458 meters per second. The speed of light in a vacuum, \\(c\\), is one of the fundamental constants of nature. The meter is equal to approximately 1.093 613 3 yards, 3.280 840 feet, or 39.370 079 inches."^^<http://qudt.org/schema/qudt/LatexString> ;
+  <http://qudt.org/schema/qudt/symbol> "m" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
+  rdfs:isDefinedBy <http://qudt.org/vocab/unit> ;
+  rdfs:label "Meter"@en-us ;
+  rdfs:label "Metre"@en ;
+.
+
+<http://qudt.org/vocab/unit/FT>
+  a <http://qudt.org/schema/qudt/Unit> ;
+  <http://purl.org/dc/terms/description> "A foot is a unit of length defined as being 0.3048 m exactly and used in the imperial system of units and United States customary units. It is subdivided into 12 inches. The foot is still officially used in Canada and still commonly used in the United Kingdom, although the latter has partially metricated its units of measurement. "^^rdf:HTML ;
+  <http://qudt.org/schema/qudt/symbol> "ft" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
+  rdfs:isDefinedBy <http://qudt.org/vocab/unit> ;
+  rdfs:label "Foot"@en ;
+.
+
+<http://qudt.org/vocab/unit/IN>
+  a <http://qudt.org/schema/qudt/Unit> ;
+  <http://purl.org/dc/terms/description> "An inch is the name of a unit of length in a number of different systems, including Imperial units, and United States customary units. There are 36 inches in a yard and 12 inches in a foot. Corresponding units of area and volume are the square inch and the cubic inch."^^rdf:HTML ;
+  <http://qudt.org/schema/qudt/symbol> "in" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
+  rdfs:isDefinedBy <http://qudt.org/vocab/unit> ;
+  rdfs:label "Inch"@en ;
+.
+
+<http://qudt.org/vocab/unit/M-PER-SEC>
+  a <http://qudt.org/schema/qudt/Unit> ;
+  <http://purl.org/dc/terms/description> """Metre per second is an SI derived unit of both speed (scalar) and velocity (vector quantity which specifies both magnitude and a specific direction), defined by distance in metres divided by time in seconds.
+The official SI symbolic abbreviation is mu00b7s-1, or equivalently either m/s."""^^rdf:HTML ;
+  <http://qudt.org/schema/qudt/symbol> "m/s" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
+  rdfs:isDefinedBy <http://qudt.org/vocab/unit> ;
+  rdfs:label "Meter per Second"@en-us ;
+  rdfs:label "Metre per Second"@en ;
+.
+
+<http://qudt.org/vocab/unit/FT-PER-SEC>
+  a <http://qudt.org/schema/qudt/Unit> ;
+  <http://purl.org/dc/terms/description> "\\(\\textit{foot per second}\\) (plural \\(\\textit{feet per second}\\)) is a unit of both speed (scalar) and velocity (vector quantity, which includes direction). It expresses the distance in feet (\\(ft\\)) traveled or displaced, divided by the time in seconds (\\(s\\), or \\(sec\\)). The corresponding unit in the International System of Units (SI) is the \\(\\textit{metre per second}\\). Abbreviations include \\(ft/s\\), \\(ft/sec\\) and \\(fps\\), and the rarely used scientific notation \\(ft\\,s\\)."^^<http://qudt.org/schema/qudt/LatexString> ;
+  <http://qudt.org/schema/qudt/symbol> "ft/s" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
+  rdfs:isDefinedBy <http://qudt.org/vocab/unit> ;
+  rdfs:label "Foot per Second"@en ;
+.
+
+<http://qudt.org/vocab/unit/KiloM-PER-HR>
+  a <http://qudt.org/schema/qudt/Unit> ;
+  <http://purl.org/dc/terms/description> "\"Kilometer per Hour\" is a C.G.S System unit for  'Linear Velocity' expressed as \\(km/hr\\)."^^<http://qudt.org/schema/qudt/LatexString> ;
+  <http://qudt.org/schema/qudt/symbol> "km/hr" ;
+  rdfs:isDefinedBy <http://qudt.org/2.1/vocab/unit> ;
+  rdfs:isDefinedBy <http://qudt.org/vocab/unit> ;
+  rdfs:label "Kilometer per Hour"@en-us ;
+  rdfs:label "Kilometre per Hour"@en ;
+.

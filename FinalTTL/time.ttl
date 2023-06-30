@@ -1,0 +1,113 @@
+# baseURI: http://www.w3.org/2006/time
+
+@prefix : <http://www.w3.org/2006/time#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.w3.org/2006/time>
+  rdf:type owl:Ontology ;
+  dct:contributor <mailto:chris.little@metoffice.gov.uk> ;
+  dct:created "2006-09-27"^^xsd:date ;
+  dct:creator <http://orcid.org/0000-0002-3884-3420> ;
+  dct:creator <https://en.wikipedia.org/wiki/Jerry_Hobbs> ;
+  dct:creator <mailto:panfeng66@gmail.com> ;
+  dct:isVersionOf <http://www.w3.org/TR/owl-time> ;
+  dct:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dct:modified "2021-01-27"^^xsd:date ;
+  dct:rights "Copyright � 2006-2021 W3C, OGC. W3C and OGC liability, trademark and document use rules apply."@en ;
+  rdfs:label "OWL-Time"@en ;
+  rdfs:seeAlso <http://dx.doi.org/10.3233/SW-150187> ;
+  rdfs:seeAlso <http://www.semantic-web-journal.net/content/time-ontology-extended-non-gregorian-calendar-applications> ;
+  rdfs:seeAlso <http://www.w3.org/TR/owl-time> ;
+  owl:priorVersion <http://www.w3.org/2006/time#2006> ;
+  owl:versionIRI <http://www.w3.org/2006/time#2016> ;
+  skos:changeNote "2016-06-15 - initial update of OWL-Time - modified to support arbitrary temporal reference systems. " ;
+  skos:changeNote "2016-12-20 - adjust range of time:timeZone to time:TimeZone, moved up from the tzont ontology.  " ;
+  skos:changeNote "2016-12-20 - restore time:Year and time:January which were present in the 2006 version of the ontology, but now marked \"deprecated\". " ;
+  skos:changeNote "2017-02 - intervalIn, intervalDisjoint, monthOfYear added; TemporalUnit subclass of TemporalDuration" ;
+  skos:changeNote "2021-01-27 - clarified definition and label for time:after and time:before" ;
+  skos:historyNote """Update of OWL-Time ontology, extended to support general temporal reference systems. 
+  Ontology engineering by Simon J D Cox"""@en ;
+.
+:Instant
+  rdf:type owl:Class ;
+  rdfs:comment "A temporal entity with zero extent or duration"@en ;
+  rdfs:label "Time instant"@en ;
+  rdfs:subClassOf :TemporalEntity ;
+  skos:definition "A temporal entity with zero extent or duration"@en ;
+
+  .
+:Interval
+  rdf:type owl:Class ;
+  rdfs:comment "A temporal entity with an extent or duration"@en ;
+  rdfs:label "Time interval"@en ;
+  rdfs:subClassOf :TemporalEntity ;
+  skos:definition "A temporal entity with an extent or duration"@en ;
+
+  .
+:TemporalEntity
+  rdf:type owl:Class ;
+  rdfs:comment "A temporal interval or instant."@en ;
+  rdfs:label "Temporal entity"@en ;
+  rdfs:subClassOf owl:Thing ;
+  owl:unionOf (
+      :Instant
+      :Interval
+    ) ;
+  skos:definition "A temporal interval or instant."@en ;
+
+  .
+:hasBeginning
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Beginning of a temporal entity"@en ;
+  rdfs:domain :TemporalEntity ;
+  rdfs:label "has beginning"@en ;
+  rdfs:range :Instant ;
+  skos:definition "Beginning of a temporal entity."@en ;
+
+  .
+:hasEnd
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "End of a temporal entity."@en ;
+  rdfs:domain :TemporalEntity ;
+  rdfs:label "has end"@en ;
+  rdfs:range :Instant ;
+  skos:definition "End of a temporal entity."@en ;
+
+  .
+
+:inXSDDateTimeStamp
+  rdf:type owl:DatatypeProperty ;
+  rdfs:comment "Position of an instant, expressed using xsd:dateTimeStamp"@en ;
+  rdfs:domain :Instant ;
+  rdfs:label "in XSD Date-Time-Stamp"@en ;
+  rdfs:range xsd:dateTimeStamp ;
+  skos:definition "Position of an instant, expressed using xsd:dateTimeStamp"@en ;
+
+
+
+  
+  .
+:TemporalEntity 
+        rdfs:comment     "Un intervalo temporal o un instante."@es ;
+        rdfs:label       "entidad temporal"@es ;
+        skos:definition  "Un intervalo temporal o un instante."@es .
+
+:hasBeginning 
+        rdfs:comment     "Comienzo de una entidad temporal."@es ;
+        rdfs:label       "tiene principio"@es ;
+        skos:definition  "Comienzo de una entidad temporal."@es .
+
+:hasEnd rdfs:comment     "Final de una entidad temporal."@es ;
+        rdfs:label       "tiene fin"@es ;
+        skos:definition  "Final de una entidad temporal."@es .
+
+
+:inXSDDateTimeStamp 
+        rdfs:comment     "Posicion de un instante, expresado utilizando xsd:dateTimeStamp."@es ;
+        rdfs:label       "en fecha-sello de tiempo XSD"@es ;
+        skos:definition  "Posicion de un instante, expresado utilizando xsd:dateTimeStamp."@es .
