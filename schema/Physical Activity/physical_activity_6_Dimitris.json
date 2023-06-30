@@ -1,0 +1,24 @@
+{
+    "header": {
+        "id": "dc5397be-936c-42f7-befd-11fece2c76d3",
+        "creation_date_time": "2023-06-15T13:50:24.621Z",
+        "acquisition_provenance": {
+            "source_name": "Google Fit API",
+            "source_origin_id": "derived:com.google.activity.samples:com.google.android.gms:Xiaomi:M2103K19G:76151d60:detailed"
+        },
+        "schema_id": {
+            "namespace": "omh",
+            "name": "physical-activity",
+            "version": "1.2"
+        }
+    },
+    "body": {
+        "effective_time_frame": {
+            "time_interval": {
+                "start_date_time": "2023-06-13T14:28:52.272Z",
+                "end_date_time": "2023-06-13T14:29:20.898Z"
+            }
+        },
+        "activity_name": "Basketball"
+    }
+}

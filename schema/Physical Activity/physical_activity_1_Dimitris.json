@@ -1,0 +1,24 @@
+{
+    "header": {
+        "id": "97d3141b-9de3-4d9c-a467-5073c6dcfec5",
+        "creation_date_time": "2023-06-15T13:50:24.622Z",
+        "acquisition_provenance": {
+            "source_name": "Google Fit API",
+            "source_origin_id": "raw:com.google.activity.segment:com.xiaomi.hm.health:GoogleFitSyncHelper- steps segments9"
+        },
+        "schema_id": {
+            "namespace": "omh",
+            "name": "physical-activity",
+            "version": "1.2"
+        }
+    },
+    "body": {
+        "effective_time_frame": {
+            "time_interval": {
+                "start_date_time": "2023-06-15T11:19:00Z",
+                "end_date_time": "2023-06-15T11:34:00Z"
+            }
+        },
+        "activity_name": "Ping Pong"
+    }
+}

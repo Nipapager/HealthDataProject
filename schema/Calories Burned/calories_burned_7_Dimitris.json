@@ -1,0 +1,27 @@
+{
+    "header": {
+        "id": "e06136e5-c17d-43eb-917b-efa025b0950a",
+        "creation_date_time": "2023-06-15T13:04:08.582Z",
+        "acquisition_provenance": {
+            "source_name": "Google Fit API",
+            "source_origin_id": "derived:com.google.calories.expended:com.google.android.gms:merge_calories_expended"
+        },
+        "schema_id": {
+            "namespace": "omh",
+            "name": "calories-burned",
+            "version": "2.0"
+        }
+    },
+    "body": {
+        "effective_time_frame": {
+            "time_interval": {
+                "start_date_time": "2023-06-11T14:14:22.999Z",
+                "end_date_time": "2023-06-11T15:32:00Z"
+            }
+        },
+        "kcal_burned": {
+            "unit": "kcal",
+            "value": 560.0
+        }
+    }
+}

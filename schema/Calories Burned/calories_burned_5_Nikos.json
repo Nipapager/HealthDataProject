@@ -1,0 +1,27 @@
+{
+    "header": {
+        "id": "dcea31e2-9a78-451c-ad04-e0b385cffd0d",
+        "creation_date_time": "2023-06-15T13:04:08.594Z",
+        "acquisition_provenance": {
+            "source_name": "Google Fit API",
+            "source_origin_id": "raw:com.google.calories.expended:com.xiaomi.hm.health:GoogleFitSyncHelper- calories0"
+        },
+        "schema_id": {
+            "namespace": "omh",
+            "name": "calories-burned",
+            "version": "2.0"
+        }
+    },
+    "body": {
+        "effective_time_frame": {
+            "time_interval": {
+                "start_date_time": "2023-06-13T21:05:00Z",
+                "end_date_time": "2023-06-13T21:28:00Z"
+            }
+        },
+        "kcal_burned": {
+            "unit": "kcal",
+            "value": 154.0
+        }
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "header": {
+        "id": "0902d39b-d764-41ba-9845-1036f4544f07",
+        "creation_date_time": "2023-06-16T11:24:35.040Z",
+        "acquisition_provenance": {
+            "source_name": "Google Fit API",
+            "modality": "self-reported",
+            "source_origin_id": "raw:com.google.weight:com.google.android.apps.fitness:user_input"
+        },
+        "schema_id": {
+            "namespace": "omh",
+            "name": "body-weight",
+            "version": "1.0"
+        }
+    },
+    "body": {
+        "effective_time_frame": {
+            "date_time": "2023-06-13T07:51:00Z"
+        },
+        "body_weight": {
+            "unit": "kg",
+            "value": 78.5
+        }
+    }
+}

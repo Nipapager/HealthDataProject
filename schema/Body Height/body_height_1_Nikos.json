@@ -1,0 +1,25 @@
+{
+    "header": {
+        "id": "9c056a3a-a749-4ce5-ad20-1ff6d65bc722",
+        "creation_date_time": "2023-06-16T11:24:43.270Z",
+        "acquisition_provenance": {
+            "source_name": "Google Fit API",
+            "modality": "self-reported",
+            "source_origin_id": "raw:com.google.height:com.google.android.apps.fitness:user_input"
+        },
+        "schema_id": {
+            "namespace": "omh",
+            "name": "body-height",
+            "version": "1.0"
+        }
+    },
+    "body": {
+        "effective_time_frame": {
+            "date_time": "2023-06-12T11:07:00Z"
+        },
+        "body_height": {
+            "unit": "m",
+            "value": 1.7799999713897705
+        }
+    }
+}

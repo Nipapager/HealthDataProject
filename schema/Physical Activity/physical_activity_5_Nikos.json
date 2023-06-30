@@ -1,0 +1,24 @@
+{
+    "header": {
+        "id": "e0c16e19-9659-4610-ab6b-4f468e4df861",
+        "creation_date_time": "2023-06-15T13:50:24.621Z",
+        "acquisition_provenance": {
+            "source_name": "Google Fit API",
+            "source_origin_id": "derived:com.google.activity.segment:com.xiaomi.hm.health:session_activity_segment"
+        },
+        "schema_id": {
+            "namespace": "omh",
+            "name": "physical-activity",
+            "version": "1.2"
+        }
+    },
+    "body": {
+        "effective_time_frame": {
+            "time_interval": {
+                "start_date_time": "2023-06-13T21:05:00Z",
+                "end_date_time": "2023-06-13T21:28:00Z"
+            }
+        },
+        "activity_name": "Football"
+    }
+}

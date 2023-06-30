@@ -1,0 +1,24 @@
+{
+    "header": {
+        "id": "490828ff-8b78-4db5-b1ae-9228114e41b5",
+        "creation_date_time": "2023-06-15T13:50:24.622Z",
+        "acquisition_provenance": {
+            "source_name": "Google Fit API",
+            "source_origin_id": "raw:com.google.step_count.cumulative:Xiaomi:M2103K19G:76151d60:STEP_COUNTER"
+        },
+        "schema_id": {
+            "namespace": "omh",
+            "name": "physical-activity",
+            "version": "1.2"
+        }
+    },
+    "body": {
+        "effective_time_frame": {
+            "time_interval": {
+                "start_date_time": "2023-06-15T07:05:39.604570962Z",
+                "end_date_time": "2023-06-15T07:05:50.100Z"
+            }
+        },
+        "activity_name": "Running"
+    }
+}

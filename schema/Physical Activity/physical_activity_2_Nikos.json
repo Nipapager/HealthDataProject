@@ -1,0 +1,24 @@
+{
+    "header": {
+        "id": "e4e2b7cf-d98c-4de8-ba3e-62f4d58f3992",
+        "creation_date_time": "2023-06-15T13:50:24.619Z",
+        "acquisition_provenance": {
+            "source_name": "Google Fit API",
+            "source_origin_id": "derived:com.google.activity.segment:com.xiaomi.hm.health:session_activity_segment"
+        },
+        "schema_id": {
+            "namespace": "omh",
+            "name": "physical-activity",
+            "version": "1.2"
+        }
+    },
+    "body": {
+        "effective_time_frame": {
+            "time_interval": {
+                "start_date_time": "2023-06-09T11:38:00Z",
+                "end_date_time": "2023-06-09T11:45:00Z"
+            }
+        },
+        "activity_name": "Walking"
+    }
+}

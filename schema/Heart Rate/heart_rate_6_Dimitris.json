@@ -1,0 +1,24 @@
+{
+    "header": {
+        "id": "1ee9653d-4bb6-4b82-a3bd-00f85f6b2830",
+        "creation_date_time": "2023-06-15T13:36:44.885Z",
+        "acquisition_provenance": {
+            "source_name": "Google Fit API",
+            "source_origin_id": "raw:com.google.heart_rate.bpm:com.xiaomi.hm.health:GoogleFitSyncHelper - heartrate"
+        },
+        "schema_id": {
+            "namespace": "omh",
+            "name": "heart-rate",
+            "version": "1.1"
+        }
+    },
+    "body": {
+        "effective_time_frame": {
+            "date_time": "2023-06-15T11:22:00Z"
+        },
+        "heart_rate": {
+            "unit": "beats/min",
+            "value": 83.0
+        }
+    }
+}

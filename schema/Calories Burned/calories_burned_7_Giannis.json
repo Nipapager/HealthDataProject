@@ -1,0 +1,27 @@
+{
+    "header": {
+        "id": "4cd96e1b-186e-4f41-b0c6-db4c6f7f18e5",
+        "creation_date_time": "2023-06-15T13:04:08.585Z",
+        "acquisition_provenance": {
+            "source_name": "Google Fit API",
+            "source_origin_id": "derived:com.google.calories.expended:com.google.android.fit:Xiaomi:M2103K19G:76151d60:top_level"
+        },
+        "schema_id": {
+            "namespace": "omh",
+            "name": "calories-burned",
+            "version": "2.0"
+        }
+    },
+    "body": {
+        "effective_time_frame": {
+            "time_interval": {
+                "start_date_time": "2023-06-11T19:29:59.999Z",
+                "end_date_time": "2023-06-11T19:50:00Z"
+            }
+        },
+        "kcal_burned": {
+            "unit": "kcal",
+            "value": 251.0
+        }
+    }
+}
