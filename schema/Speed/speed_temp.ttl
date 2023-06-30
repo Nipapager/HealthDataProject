@@ -1,0 +1,164 @@
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix : <http://example.org/rules/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+
+:TriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "input.json";
+        rml:referenceFormulation ql:JSONPath;
+        rml:iterator "$"
+    ].
+
+:TriplesMap rr:subjectMap [
+        rr:template "http://www.w3.org/ns/sosa/Observation/{header.id}";
+        rr:class sosa:Observation;
+    ].
+
+:SourceMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "input.json";
+        rml:referenceFormulation ql:JSONPath;
+        rml:iterator "$"
+    ].
+
+:SourceMap rr:subjectMap [
+        rr:template "http://www.w3.org/ns/sosa/Procedure/{header.acquisition_provenance.source_origin_id}";
+        rr:class sosa:Procedure;
+    ].
+
+
+
+:TriplesMap rr:predicateObjectMap [
+        rr:predicate sosa:usedProcedure;        
+        rr:objectMap [            
+            rr:template "http://www.w3.org/ns/sosa/Procedure/{header.acquisition_provenance.source_origin_id}";
+            rr:termType rr:IRI;
+        ]
+    ].
+
+    
+:ObservablePropertyMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "input.json";
+        rml:referenceFormulation ql:JSONPath;
+        rml:iterator "$"
+    ].
+
+:ObservablePropertyMap rr:subjectMap [
+        rr:template "http://www.w3.org/ns/sosa/ObservableProperty/{header.schema_id.name}";
+        rr:class sosa:ObservableProperty;
+    ].
+    
+    
+:TriplesMap rr:predicateObjectMap [        
+        rr:predicate sosa:observedProperty;        
+        rr:objectMap [            
+            rr:template "http://www.w3.org/ns/sosa/ObservableProperty/{header.schema_id.name}";
+            rr:termType rr:IRI;
+        ]
+    ].
+    
+:FoiMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "input.json";
+        rml:referenceFormulation ql:JSONPath;
+        rml:iterator "$"
+    ].
+
+:FoiMap rr:subjectMap [
+        rr:template "http://www.w3.org/ns/sosa/FeatureOfInterest/User";
+        rr:class sosa:FeatureOfInterest;
+    ].
+    
+:TriplesMap rr:predicateObjectMap [        
+        rr:predicate sosa:hasFeatureOfInterest;        
+        rr:objectMap [            
+            rr:template "http://www.w3.org/ns/sosa/FeatureOfInterest/User";
+            rr:termType rr:IRI;
+        ]
+    ].
+    
+    
+:SetTimeMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "input.json";
+        rml:referenceFormulation ql:JSONPath;
+        rml:iterator "$"
+    ].
+
+:SetTimeMap rr:subjectMap [
+        rr:template "http://www.w3.org/2006/time#TimeOf{header.id}";
+        rr:class time:Instant;
+    ].
+    
+:SetTimeMap rr:predicateObjectMap [
+        rr:predicate time:inXSDDateTimeStamp;
+        rr:objectMap [
+            rml:reference "body.effective_time_frame.date_time";
+            rr:datatype xsd:dateTimeStamp;
+        ]
+    ].   
+    
+:TriplesMap rr:predicateObjectMap [        
+        rr:predicate sosa:phenomenonTime;        
+        rr:objectMap [            
+            rr:template "http://www.w3.org/2006/time#TimeOf{header.id}";
+            rr:termType rr:IRI;
+        ]
+    ].
+ 
+
+
+:ResultMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "input.json";
+        rml:referenceFormulation ql:JSONPath;
+        rml:iterator "$"
+    ].
+
+:ResultMap rr:subjectMap [
+        rr:template "http://qudt.org/2.1/schema/qudt/{body.speed.value}_{body.speed.unit}";
+        rr:class qudt:QuantityValue;
+    ].
+
+:TriplesMap rr:predicateObjectMap [        
+        rr:predicate sosa:hasResult;        
+        rr:objectMap [            
+            rr:template "http://qudt.org/2.1/schema/qudt/{body.speed.value}_{body.speed.unit}";
+            rr:termType rr:IRI;
+        ]
+    ].
+
+:UnitMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "input.json";
+        rml:referenceFormulation ql:JSONPath;
+        rml:iterator "$"
+    ].
+
+:UnitMap rr:subjectMap [
+        rr:template "http://qudt.org/vocab/unit/UnitForSpeed";
+        rr:class qudt:Unit;
+    ].
+
+:ResultMap rr:predicateObjectMap [
+        rr:predicate qudt:unit;        
+        rr:objectMap [
+            rr:template "http://qudt.org/vocab/unit/UnitForSpeed";
+            rr:termType rr:IRI;
+        ]
+    ].
+
+:ResultMap rr:predicateObjectMap [
+        rr:predicate qudt:numericValue;        
+        rr:objectMap [
+            rml:reference "body.speed.value";
+            rr:datatype xsd:float;
+        ]
+    ].

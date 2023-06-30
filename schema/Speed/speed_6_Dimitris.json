@@ -1,0 +1,24 @@
+{
+    "header": {
+        "id": "59b5b451-c936-4e3f-ae55-afa7d3074215",
+        "creation_date_time": "2023-06-15T14:09:01.637Z",
+        "acquisition_provenance": {
+            "source_name": "Google Fit API",
+            "source_origin_id": "raw:com.google.distance.delta:com.xiaomi.hm.health:GoogleFitSyncHelper- distance21"
+        },
+        "schema_id": {
+            "namespace": "omh",
+            "name": "speed",
+            "version": "1.0"
+        }
+    },
+    "body": {
+        "effective_time_frame": {
+            "date_time": "2023-06-12T18:13:00Z"
+        },
+        "speed": {
+            "unit": "m/s",
+            "value": 1.925
+        }
+    }
+}

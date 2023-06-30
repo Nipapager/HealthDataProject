@@ -1,0 +1,24 @@
+{
+    "header": {
+        "id": "9fdc3e5a-0ac7-4a84-b67c-f1d8e04d8518",
+        "creation_date_time": "2023-06-15T14:09:01.632Z",
+        "acquisition_provenance": {
+            "source_name": "Google Fit API",
+            "source_origin_id": "raw:com.google.step_count.cumulative:Xiaomi:M2103K19G:76151d60:STEP_COUNTER"
+        },
+        "schema_id": {
+            "namespace": "omh",
+            "name": "speed",
+            "version": "1.0"
+        }
+    },
+    "body": {
+        "effective_time_frame": {
+            "date_time": "2023-06-10T14:53:43.945479996Z"
+        },
+        "speed": {
+            "unit": "m/s",
+            "value": 1.2354348927459118
+        }
+    }
+}
