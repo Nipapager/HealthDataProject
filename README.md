@@ -1,5 +1,8 @@
 # HealthDataProject
+
+
 **Greek:**
+
 **- Σχετικά με το πρόγραμμα: -**
 
 Το πρόγραμμα HealthDataProject φτιάχτηκε στα πλαίσια της πτυχιακής εργασίας, που έχει ως θέμα την άντληση δεδομένων υγείας σε μορφή Open mHealth JSON σχήματα, τον μετασχηματισμό τους σε RDF γράφους, την αποθήκευση τους στην σημασιολογική βάση δεδομένων GraphDB και την προβολή τους μέσω μιας web εφαρμογής. Το συγκεκριμένο πρόγραμμα σε γλώσσα java υλοποιεί τον αυτόματο μετασχηματισμό των δεδομένων από JSON σχήματα (Open mHealth) σε τριπλέτες RDF, την αποθήκευση τους στο GraphDB και την επαλήθευσή τους με τη χρήση της SHACL.
@@ -50,8 +53,11 @@
 3. Στον φάκελο "HealthDataProject\FinalOntology" αποθηκεύεται η τελική οντολογία, με την ένωση όλων των .ttl αρχείων που υπάρχουν στον φάκελο "HealthDataProject\FinalTTL".
 4. Δημιουργείται repository στο GraphDB στο οποίο ανεβαίνουν όλα τα αρχεία του φακέλου "HealthDataProject\FinalTTL".
 5. Στο repository του GraphDB που δημιουργήθηκε, ανεβαίνει το αρχείο shacl.ttl του φακέλου "HealthDataProject\SHACLValidation" για να κάνει την επαλήθευση της εγκυρότητας των τριπλετών RDF.
+
 ==============================================================
+
 **English:**
+
 **- About the program: -**
 
 The HealthDataProject program was built as part of the thesis, which is about retrieving health data in the form of Open mHealth JSON schemas, transforming them into RDF graphs, storing them in the semantic database GraphDB and viewing them through a web application. This java language program implements the automatic transformation of the data from JSON schemas (Open mHealth) to RDF triples, storing them in GraphDB and verifying them using SHACL.
